@@ -1,0 +1,33 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Plataformas</h1>
+
+<a href="/plataforma/add">+ Plataforma</a>
+
+<table>
+
+    <tr>
+        <td>Nome</td>
+        <td>Fabricante</td>
+        <td>Ano de Lançamento</td>
+        <td>Ações</td>
+    </tr>
+
+    <%for (const {id, nome, fabricante, anoLancamento} of Plataformas) {%>
+
+    <tr>
+        <td><%=nome%></td>
+        <td><%=fabricante%></td>
+        <td><%=anoLancamento%></td>
+
+        <td>
+            <a href="/plataforma/edt/<%=id%>">Editar</a>
+            <a href="/plataforma/del/<%=id%>">Excluir</a>
+        </td>
+    </tr>
+
+    <%}%>
+
+</table>
+
+<%-include('../rodape.ejs')%>

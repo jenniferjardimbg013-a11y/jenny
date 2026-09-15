@@ -1,0 +1,39 @@
+<%-include('../cabecalho.ejs')%>
+
+    <h1>Editar Usuário</h1>
+
+    <div>
+
+        <a href="/usuario/lst">Listar</a>
+
+    </div>
+
+    <div>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="id" value="<%=Usuario.id%>"><br>
+
+            <label>Nome:</label>
+            <input type="text" name="nome" value="<%=Usuario.nome%>"><br>
+
+            <label>Email:</label>
+            <input type="email" name="email" value="<%=Usuario.email%>"><br>
+
+            <label>Senha:</label>
+            <input type="password" name="senha" value="<%=Usuario.senha%>"><br>
+
+            <label>Foto:</label>
+            <input type="file" name="foto" accept="image/*"><br>
+
+            <% if (Usuario.foto) { %>
+                <img src="/usuario/foto/<%=Usuario.id%>" alt="Foto de <%=Usuario.nome%>" width="120">
+                <label><input type="checkbox" name="removerFoto"> Remover foto atual</label><br>
+            <% } %>
+
+            <button type="submit">Editar</button>
+
+        </form>
+
+    </div>
+    <%-include('../rodape.ejs')%>

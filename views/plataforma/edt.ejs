@@ -1,0 +1,36 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Editar Plataforma</h1>
+
+<div>
+
+    <a href="/plataforma/lst">Listar</a>
+
+</div>
+
+<div>
+
+    <form method="post">
+
+        <input type="hidden" name="id"
+        value="<%=Plataforma.id%>"><br>
+
+        <label>Nome:</label>
+        <input type="text" name="nome"
+        value="<%=Plataforma.nome%>"><br>
+
+        <label>Fabricante:</label>
+        <input type="text" name="fabricante"
+        value="<%=Plataforma.fabricante%>"><br>
+
+        <label>Ano de Lançamento:</label>
+        <input type="number" name="anoLancamento"
+        value="<%=Plataforma.anoLancamento%>"><br>
+
+        <button type="submit">Editar</button>
+
+    </form>
+
+</div>
+
+<%-include('../rodape.ejs')%>

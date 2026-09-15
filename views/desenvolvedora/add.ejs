@@ -1,0 +1,33 @@
+<%-include('../cabecalho.ejs')%>
+
+    <h1>Adicionar Desenvolvedora</h1>
+
+    <div>
+
+        <a href="/desenvolvedora/lst">Listar</a>
+
+    </div>
+
+    <div>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <label>Nome:</label>
+            <input type="text" name="nome"><br>
+
+            <label>País:</label>
+            <input type="text" name="pais"><br>
+
+            <label>Ano Fundação:</label>
+            <input type="number" name="anoFundacao"><br>
+
+            <label>Logo:</label>
+            <input type="file" name="logo"><br>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+    </div>
+
+    <%-include('../rodape.ejs')%>

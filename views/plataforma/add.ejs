@@ -1,0 +1,30 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Adicionar Plataforma</h1>
+
+<div>
+
+    <a href="/plataforma/lst">Listar</a>
+
+</div>
+
+<div>
+
+    <form method="post">
+
+        <label>Nome:</label>
+        <input type="text" name="nome"><br>
+
+        <label>Fabricante:</label>
+        <input type="text" name="fabricante"><br>
+
+        <label>Ano de Lançamento:</label>
+        <input type="number" name="anoLancamento"><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+</div>
+
+<%-include('../rodape.ejs')%>

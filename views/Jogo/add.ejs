@@ -1,0 +1,44 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Adicionar Jogo</h1>
+
+<div>
+    <a href="/jogo/lst">Listar</a>
+</div>
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+
+        <label>Título:</label>
+        <input type="text" name="titulo"><br>
+
+        <label>Descrição:</label>
+        <input type="text" name="descricao"><br>
+
+        <label>Ano de Lançamento:</label>
+        <input type="number" name="anoLancamento"><br>
+
+        <label>Classificação Etária:</label>
+        <input type="text" name="classificacaoEtaria"><br>
+
+        <label>Dificuldade:</label>
+        <input type="text" name="dificuldade"><br>
+
+        <label>Capa:</label>
+        <input type="file" name="capa" accept="image/*"><br>
+
+        <label>Desenvolvedora:</label>
+        <input type="text" name="desenvolvedora"><br>
+
+        <label>Gênero:</label>
+        <input type="text" name="genero"><br>
+
+        <label>Plataforma:</label>
+        <input type="text" name="plataforma"><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>

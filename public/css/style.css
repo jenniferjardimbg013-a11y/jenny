@@ -1,0 +1,699 @@
+/* =========================================================
+   SITE DE JOGOS EDUCATIVOS
+   PALETA: ROSA + ROXO + TURQUESA + AMARELO
+========================================================= */
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7fb;
+    color: #29233d;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(232, 62, 140, 0.12);
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+h1 {
+    text-align: center;
+    color: #6c4ab6;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #6c4ab6;
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #29233d;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    background: linear-gradient(135deg, #e83e8c, #8b5cf6);
+    color: #ffffff;
+    padding: 22px 30px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 7px 20px rgba(232, 62, 140, 0.25);
+}
+
+header h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu {
+    margin-bottom: 25px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.menu ul li {
+    text-align: center;
+}
+
+.menu ul li a {
+    display: block;
+
+    padding: 11px 19px;
+
+    background-color: #ffe3f0;
+    color: #a52665;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: all 0.25s ease;
+}
+
+.menu ul li a:hover {
+    background-color: #e83e8c;
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 12px rgba(232, 62, 140, 0.25);
+}
+
+
+/* =========================
+   ÁREA PRINCIPAL / DESTAQUE
+========================= */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #ffe5f1,
+        #eee6ff,
+        #e2fbf5
+    );
+
+    padding: 38px 30px;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    border: 1px solid #f3d6e5;
+}
+
+.hero h1 {
+    color: #6c4ab6;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #5d586b;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TÍTULO DA ÁREA DE JOGOS
+========================= */
+
+.games-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.games-title h2 {
+    margin: 0;
+}
+
+
+/* =========================
+   ÁREA DOS JOGOS
+========================= */
+
+.games {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 22px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   CARDS DOS JOGOS
+========================= */
+
+.game-card {
+    background-color: #ffffff;
+
+    border: 2px solid #f4dce8;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 18px rgba(41, 35, 61, 0.08);
+
+    transition: all 0.25s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #e83e8c;
+
+    box-shadow:
+        0 12px 28px rgba(232, 62, 140, 0.18);
+}
+
+.game-card img {
+    width: 100%;
+    height: 175px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.game-card-content {
+    padding: 19px;
+}
+
+.game-card h3 {
+    font-size: 20px;
+
+    color: #6c4ab6;
+
+    margin-bottom: 9px;
+}
+
+.game-card p {
+    color: #6b6875;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 20px 0 30px;
+}
+
+.category {
+    padding: 10px 19px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    background-color: #eee6ff;
+
+    color: #6c4ab6;
+
+    transition: all 0.2s ease;
+}
+
+.category:hover {
+    background-color: #6c4ab6;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 11px 19px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(0.95);
+}
+
+
+/* =========================
+   BOTÃO PRINCIPAL
+========================= */
+
+.btn {
+    background-color: #e83e8c;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(232, 62, 140, 0.2);
+}
+
+.btn:hover {
+    background-color: #d82f7d;
+}
+
+
+/* =========================
+   BOTÃO JOGAR
+========================= */
+
+.btn.jogar {
+    background-color: #20c9a6;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(32, 201, 166, 0.2);
+}
+
+.btn.jogar:hover {
+    background-color: #17ae90;
+}
+
+
+/* =========================
+   BOTÃO EDITAR
+========================= */
+
+.btn.edit {
+    background-color: #ffc857;
+
+    color: #4b3a00;
+}
+
+
+/* =========================
+   BOTÃO ADICIONAR
+========================= */
+
+.btn.add {
+    background-color: #3b82f6;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   BOTÃO EXCLUIR
+========================= */
+
+.btn.delete {
+    background-color: #e63946;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   BOTÃO CANCELAR
+========================= */
+
+.btn.cancelar {
+    background-color: #8b8795;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #40394f;
+
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #d9ced8;
+
+    border-radius: 9px;
+
+    background-color: #fffafd;
+
+    color: #29233d;
+
+    font-size: 14px;
+
+    transition: all 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+
+    border-color: #e83e8c;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(232, 62, 140, 0.12);
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 25px;
+
+    background-color: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(41, 35, 61, 0.07);
+}
+
+table th,
+table td {
+    padding: 13px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #eee3ea;
+}
+
+table th {
+    background-color: #6c4ab6;
+
+    color: #ffffff;
+
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #fff0f7;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+.search {
+    text-align: right;
+
+    margin-bottom: 15px;
+}
+
+.search input {
+    padding: 10px 13px;
+
+    border: 1px solid #d9ced8;
+
+    border-radius: 9px;
+
+    background-color: #ffffff;
+
+    color: #29233d;
+
+    outline: none;
+}
+
+.search input:focus {
+    border-color: #e83e8c;
+
+    box-shadow:
+        0 0 0 3px rgba(232, 62, 140, 0.1);
+}
+
+
+/* =========================
+   MENSAGENS
+========================= */
+
+.success {
+    background-color: #e2f8f3;
+
+    color: #087f6b;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    margin-bottom: 15px;
+}
+
+.error {
+    background-color: #fde8eb;
+
+    color: #c62828;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    margin-bottom: 15px;
+}
+
+.warning {
+    background-color: #fff5d9;
+
+    color: #856404;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.footer {
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 30px;
+
+    color: #817b8b;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+
+        padding: 20px;
+
+        margin: 15px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .hero {
+        padding: 28px 18px;
+    }
+
+    .games {
+        grid-template-columns: 1fr;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        width: 100%;
+    }
+
+    .menu ul li a {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    .search {
+        text-align: left;
+    }
+}
+
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: aparecer 0.4s ease;
+}
+
+.game-card {
+    animation: aparecer 0.5s ease;
+}
+
+.hero {
+    animation: aparecer 0.45s ease;
+}

@@ -1,0 +1,33 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Desenvolvedoras</h1>
+
+<a href="/desenvolvedora/add">+ Desenvolvedora</a>
+
+<table>
+
+    <tr>
+        <td>Nome</td>
+        <td>País</td>
+        <td>Ano Fundação</td>
+        <td>Ações</td>
+    </tr>
+
+    <%for (const {id, nome, pais, anoFundacao} of Desenvolvedoras) {%>
+
+    <tr>
+        <td><%=nome%></td>
+        <td><%=pais%></td>
+        <td><%=anoFundacao%></td>
+
+        <td>
+            <a href="/desenvolvedora/edt/<%=id%>">Editar</a>
+            <a href="/desenvolvedora/del/<%=id%>">Excluir</a>
+        </td>
+    </tr>
+
+    <%}%>
+
+</table>
+
+<%-include('../rodape.ejs')%>

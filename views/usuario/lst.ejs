@@ -1,0 +1,33 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Usuários</h1>
+
+<a href="/usuario/add">+ Usuário</a>
+
+<table>
+
+    <tr>
+        <td>Foto</td>
+        <td>Nome</td>
+        <td>Email</td>
+        <td>Ações</td>
+    </tr>
+
+    <%for (const {id, nome, email, foto} of Usuarios) {%>
+
+    <tr>
+        <td><% if (foto) { %><img src="/usuario/foto/<%=id%>" alt="Foto de <%=nome%>" width="60"><% } %></td>
+        <td><%=nome%></td>
+        <td><%=email%></td>
+
+        <td>
+            <a href="/usuario/edt/<%=id%>">Editar</a>
+            <a href="/usuario/del/<%=id%>">Excluir</a>
+        </td>
+    </tr>
+
+    <%}%>
+
+</table>
+
+<%-include('../rodape.ejs')%>

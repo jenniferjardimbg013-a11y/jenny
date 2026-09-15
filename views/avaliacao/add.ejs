@@ -1,0 +1,36 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Adicionar Avaliação</h1>
+
+<div>
+
+    <a href="/avaliacao/lst">Listar</a>
+
+</div>
+
+<div>
+
+    <form method="post">
+
+        <label>Usuário:</label>
+        <input type="text" name="usuario"><br>
+
+        <label>Jogo:</label>
+        <input type="text" name="jogo"><br>
+
+        <label>Nota:</label>
+        <input type="number" name="nota"><br>
+
+        <label>Comentário:</label>
+        <input type="text" name="comentario"><br>
+
+        <label>Data:</label>
+        <input type="date" name="data"><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+</div>
+
+<%-include('../rodape.ejs')%>

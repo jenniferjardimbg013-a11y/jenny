@@ -1,0 +1,31 @@
+<%-include('../cabecalho.ejs')%>
+
+<h1>Gêneros</h1>
+
+<a href="/genero/add">+ Gênero</a>
+
+<table>
+
+    <tr>
+        <td>Nome</td>
+        <td>Descrição</td>
+        <td>Ações</td>
+    </tr>
+
+    <%for (const {id, nome, descricao} of Generos) {%>
+
+    <tr>
+        <td><%=nome%></td>
+        <td><%=descricao%></td>
+
+        <td>
+            <a href="/genero/edt/<%=id%>">Editar</a>
+            <a href="/genero/del/<%=id%>">Excluir</a>
+        </td>
+    </tr>
+
+    <%}%>
+
+</table>
+
+<%-include('../rodape.ejs')%>
