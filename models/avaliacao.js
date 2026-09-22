@@ -2,9 +2,17 @@ import conexao from '../config/conexao.js'
 
 const Avaliacao = conexao.Schema({
 
-    usuario: {type:String, required:true},
+    usuario: {
+        type: conexao.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+    },
 
-    jogo: {type:String, required:true},
+    jogo: {
+        type: conexao.Types.ObjectId,
+        ref: 'Jogo',
+        required: true
+    },
 
     nota: {type:Number, required:true},
 

@@ -33,6 +33,21 @@ export default class DesenvolvedoraController {
             })
         }
 
+        this.find = async (req, res) => {
+            const filtro = req.body.filtro
+
+            const resultado = await Desenvolvedora.find({
+                nome: {
+                    $regex: filtro,
+                    $options: 'i'
+                }
+            })
+
+            res.render(caminhoBase + 'lst', {
+                Desenvolvedoras: resultado
+            })
+        }
+
         // Abrir tela de edição
         this.openEdt = async (req, res) => {
 

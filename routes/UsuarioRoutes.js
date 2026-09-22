@@ -20,6 +20,8 @@ router.post('/' + caminhobase + 'add', upload.single('foto'), controle.add)
 
 router.get('/' + caminhobase + 'lst', controle.list)
 
+router.post('/' + caminhobase + 'lst', controle.find)
+
 router.get('/' + caminhobase + 'edt/:id', controle.openEdt)
 
 router.post('/' + caminhobase + 'edt/:id', upload.single('foto'), controle.edt)

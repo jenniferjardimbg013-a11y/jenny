@@ -1,44 +1,53 @@
 <%-include('../cabecalho.ejs')%>
 
-<h1>Editar Avaliação</h1>
+    <h1>Editar Avaliação</h1>
 
-<div>
+    <div>
 
-    <a href="/avaliacao/lst">Listar</a>
+        <a href="/avaliacao/lst">Listar</a>
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-    <form method="post">
+        <form method="post">
 
-        <input type="hidden" name="id"
-        value="<%=Avaliacao.id%>"><br>
+            <input type="hidden" name="id" value="<%=Avaliacao.id%>"><br>
 
-        <label>Usuário:</label>
-        <input type="text" name="usuario"
-        value="<%=Avaliacao.usuario%>"><br>
+            <label>Usuário:</label>
+            <select name="usuario" required>
+                <option value="">Selecione</option>
+                <% Usuarios.forEach(function(usuario) { %>
+                    <option value="<%=usuario.id%>" <%=Avaliacao.usuario && Avaliacao.usuario._id.toString() === usuario.id.toString() ? 'selected' : ''%>>
+                        <%=usuario.nome%>
+                    </option>
+                <% }) %>
+            </select><br>
 
-        <label>Jogo:</label>
-        <input type="text" name="jogo"
-        value="<%=Avaliacao.jogo%>"><br>
+            <label>Jogo:</label>
+            <select name="jogo" required>
+                <option value="">Selecione</option>
+                <% Jogos.forEach(function(jogo) { %>
+                    <option value="<%=jogo.id%>" <%=Avaliacao.jogo && Avaliacao.jogo._id.toString()===jogo.id.toString()
+                        ? 'selected' : '' %>>
+                        <%=jogo.titulo%>
+                    </option>
+                    <% }) %>
+            </select><br>
 
-        <label>Nota:</label>
-        <input type="number" name="nota"
-        value="<%=Avaliacao.nota%>"><br>
+            <label>Nota:</label>
+            <input type="number" name="nota" min="0" max="10" value="<%=Avaliacao.nota%>" required><br>
 
-        <label>Comentário:</label>
-        <input type="text" name="comentario"
-        value="<%=Avaliacao.comentario%>"><br>
+            <label>Comentário:</label>
+            <input type="text" name="comentario" value="<%=Avaliacao.comentario%>" required><br>
 
-        <label>Data:</label>
-        <input type="date" name="data"
-        value="<%=Avaliacao.data%>"><br>
+            <label>Data:</label>
+            <input type="date" name="data" value="<%=Avaliacao.data%>" required><br>
 
-        <button type="submit">Editar</button>
+            <button type="submit">Editar</button>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
-<%-include('../rodape.ejs')%>
+    <%-include('../rodape.ejs')%>

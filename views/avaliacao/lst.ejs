@@ -1,37 +1,52 @@
 <%-include('../cabecalho.ejs')%>
 
-<h1>Avaliações</h1>
+    <h1>Avaliações</h1>
 
-<a href="/avaliacao/add">+ Avaliação</a>
+    <div>
+        <form action="" method="post">
+            <input type="text" name="filtro" placeholder="digite o comentário">
+            <button type="submit">Pesquisar</button>
+        </form>
+    </div>
 
-<table>
+    <a href="/avaliacao/add">+ Avaliação</a>
 
-    <tr>
-        <td>Usuário</td>
-        <td>Jogo</td>
-        <td>Nota</td>
-        <td>Comentário</td>
-        <td>Data</td>
-        <td>Ações</td>
-    </tr>
+    <table>
 
-    <%for (const {id, usuario, jogo, nota, comentario, data} of Avaliacoes) {%>
+        <tr>
+            <td>Usuário</td>
+            <td>Jogo</td>
+            <td>Nota</td>
+            <td>Comentário</td>
+            <td>Data</td>
+            <td>Ações</td>
+        </tr>
 
-    <tr>
-        <td><%=usuario%></td>
-        <td><%=jogo%></td>
-        <td><%=nota%></td>
-        <td><%=comentario%></td>
-        <td><%=data%></td>
+        <%for (const avaliacao of Avaliacoes) {%>
 
-        <td>
-            <a href="/avaliacao/edt/<%=id%>">Editar</a>
-            <a href="/avaliacao/del/<%=id%>">Excluir</a>
-        </td>
-    </tr>
+            <tr>
+                <td><%=avaliacao.usuario ? avaliacao.usuario.nome : ''%></td>
+                <td>
+                    <%=avaliacao.jogo ? avaliacao.jogo.titulo : '' %>
+                </td>
+                <td>
+                    <%=avaliacao.nota%>
+                </td>
+                <td>
+                    <%=avaliacao.comentario%>
+                </td>
+                <td>
+                    <%=avaliacao.data%>
+                </td>
 
-    <%}%>
+                <td>
+                    <a href="/avaliacao/edt/<%=avaliacao.id%>">Editar</a>
+                    <a href="/avaliacao/del/<%=avaliacao.id%>">Excluir</a>
+                </td>
+            </tr>
 
-</table>
+            <%}%>
 
-<%-include('../rodape.ejs')%>
+    </table>
+
+    <%-include('../rodape.ejs')%>

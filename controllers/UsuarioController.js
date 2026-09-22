@@ -40,6 +40,19 @@ export default class UsuarioController{
             })
         }
 
+        this.find = async(req, res)=>{
+            const filtro = req.body.filtro
+
+            const resultado = await Usuario.find({
+                nome: {
+                    $regex: filtro,
+                    $options: 'i'
+                }
+            })
+
+            res.render(caminhoBase + 'lst', {Usuarios: resultado})
+        }
+
         this.openEdt = async(req, res)=>{
             // passar quem eu quero editar
 

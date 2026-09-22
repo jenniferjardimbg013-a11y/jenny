@@ -1,4 +1,7 @@
 import Jogo from '../models/jogo.js'
+import Desenvolvedora from '../models/desenvolvedora.js'
+import Genero from '../models/genero.js'
+import Plataforma from '../models/plataforma.js'
 
 export default class JogoController{
 
@@ -6,11 +9,33 @@ export default class JogoController{
         this.caminhoBase = caminhoBase
 
         this.openAdd = async(req, res)=>{
-            res.render(this.caminhoBase + "add")
+            const desenvolvedoras = await Desenvolvedora.find({})
+            const generos = await Genero.find({})
+            const plataformas = await Plataforma.find({})
+
+            res.render(this.caminhoBase + "add", {
+                Desenvolvedoras: desenvolvedoras,
+                Generos: generos,
+                Plataformas: plataformas
+            })
         }
 
         this.add = async(req, res)=>{
-            // cria o Jogo
+            let desenvolvedora = null
+            let genero = null
+            let plataforma = null
+
+            if(req.body.desenvolvedora != '') {
+                desenvolvedora = await Desenvolvedora.findById(req.body.desenvolvedora)
+            }
+
+            if(req.body.genero != '') {
+                genero = await Genero.findById(req.body.genero)
+            }
+
+            if(req.body.plataforma != '') {
+                plataforma = await Plataforma.findById(req.body.plataforma)
+            }
 
             await Jogo.create({
                 titulo: req.body.titulo,
@@ -18,11 +43,11 @@ export default class JogoController{
                 anoLancamento: req.body.anoLancamento,
                 classificacaoEtaria: req.body.classificacaoEtaria,
                 dificuldade: req.body.dificuldade,
-                desenvolvedora: req.body.desenvolvedora,
-                genero: req.body.genero,
-                plataforma: req.body.plataforma,
-                capa: req.file?.buffer,
-                capaTipo: req.file?.mimetype
+                desenvolvedora: desenvolvedora,
+                genero: genero,
+                plataforma: plataforma,
+                capa: req.file ? req.file.buffer : null,
+                capaTipo: req.file ? req.file.mimetype : null
             });
 
             res.redirect('/jogo/add');
@@ -30,47 +55,74 @@ export default class JogoController{
 
         this.list = async(req, res)=>{
             const resultado = await Jogo.find({})
+                .populate('desenvolvedora')
+                .populate('genero')
+                .populate('plataforma')
             res.render(this.caminhoBase + 'lst', {Jogos:resultado})
         }
 
         this.find = async(req, res)=>{
             const filtro = req.body.filtro;
 
-            const resultado = await
-            Jogo.find({
+            const resultado = await Jogo.find({
                 titulo: {
                     $regex: filtro,
                     $options: "i"
                 }
             })
+                .populate('desenvolvedora')
+                .populate('genero')
+                .populate('plataforma')
 
             res.render(this.caminhoBase + 'lst', {Jogos:resultado})
         }
 
         this.openEdt = async(req, res)=>{
-            // passar quem eu quero editar
-
             const id = req.params.id
-            console.log(id)
 
             const jogo = await Jogo.findById(id)
+                .populate('desenvolvedora')
+                .populate('genero')
+                .populate('plataforma')
 
-            console.log(jogo)
+            const desenvolvedoras = await Desenvolvedora.find({})
+            const generos = await Genero.find({})
+            const plataformas = await Plataforma.find({})
 
-            res.render(this.caminhoBase + "edt",
-                {Jogo:jogo})
+            res.render(this.caminhoBase + "edt", {
+                Jogo: jogo,
+                Desenvolvedoras: desenvolvedoras,
+                Generos: generos,
+                Plataformas: plataformas
+            })
         }
 
         this.edt = async(req, res)=>{
+            let desenvolvedora = null
+            let genero = null
+            let plataforma = null
+
+            if(req.body.desenvolvedora != '') {
+                desenvolvedora = await Desenvolvedora.findById(req.body.desenvolvedora)
+            }
+
+            if(req.body.genero != '') {
+                genero = await Genero.findById(req.body.genero)
+            }
+
+            if(req.body.plataforma != '') {
+                plataforma = await Plataforma.findById(req.body.plataforma)
+            }
+
             const dados = {
                 titulo: req.body.titulo,
                 descricao: req.body.descricao,
                 anoLancamento: req.body.anoLancamento,
                 classificacaoEtaria: req.body.classificacaoEtaria,
                 dificuldade: req.body.dificuldade,
-                desenvolvedora: req.body.desenvolvedora,
-                genero: req.body.genero,
-                plataforma: req.body.plataforma
+                desenvolvedora: desenvolvedora,
+                genero: genero,
+                plataforma: plataforma
             }
 
             if (req.file) {
@@ -95,7 +147,7 @@ export default class JogoController{
         this.capa = async(req, res)=>{
             const jogo = await Jogo.findById(req.params.id)
 
-            if (!jogo?.capa) {
+            if (!jogo || !jogo.capa) {
                 return res.sendStatus(404)
             }
 

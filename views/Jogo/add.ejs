@@ -1,44 +1,65 @@
 <%-include('../cabecalho.ejs')%>
 
-<h1>Adicionar Jogo</h1>
+    <h1>Adicionar Jogo</h1>
 
-<div>
-    <a href="/jogo/lst">Listar</a>
-</div>
+    <div>
+        <a href="/jogo/lst">Listar</a>
+    </div>
 
-<div>
-    <form method="post" enctype="multipart/form-data">
+    <div>
+        <form method="post" enctype="multipart/form-data">
 
-        <label>Título:</label>
-        <input type="text" name="titulo"><br>
+            <label>Título:</label>
+            <input type="text" name="titulo"><br>
 
-        <label>Descrição:</label>
-        <input type="text" name="descricao"><br>
+            <label>Descrição:</label>
+            <input type="text" name="descricao"><br>
 
-        <label>Ano de Lançamento:</label>
-        <input type="number" name="anoLancamento"><br>
+            <label>Ano de Lançamento:</label>
+            <input type="number" name="anoLancamento"><br>
 
-        <label>Classificação Etária:</label>
-        <input type="text" name="classificacaoEtaria"><br>
+            <label>Classificação Etária:</label>
+            <input type="text" name="classificacaoEtaria"><br>
 
-        <label>Dificuldade:</label>
-        <input type="text" name="dificuldade"><br>
+            <label>Dificuldade:</label>
+            <input type="text" name="dificuldade"><br>
 
-        <label>Capa:</label>
-        <input type="file" name="capa" accept="image/*"><br>
+            <label>Capa:</label>
+            <input type="file" name="capa" accept="image/*"><br>
 
-        <label>Desenvolvedora:</label>
-        <input type="text" name="desenvolvedora"><br>
+            <label>Desenvolvedora:</label>
+            <select name="desenvolvedora">
+                <option value="">Selecione</option>
+                <% Desenvolvedoras.forEach(function(desenvolvedora) { %>
+                    <option value="<%= desenvolvedora.id %>">
+                        <%= desenvolvedora.nome %>
+                    </option>
+                    <% }) %>
+            </select><br>
 
-        <label>Gênero:</label>
-        <input type="text" name="genero"><br>
+            <label>Gênero:</label>
+            <select name="genero">
+                <option value="">Selecione</option>
+                <% Generos.forEach(function(genero) { %>
+                    <option value="<%= genero.id %>">
+                        <%= genero.nome %>
+                    </option>
+                    <% }) %>
+            </select><br>
 
-        <label>Plataforma:</label>
-        <input type="text" name="plataforma"><br>
+            <label>Plataforma:</label>
+            <select name="plataforma">
+                <option value="">Selecione</option>
+                <% Plataformas.forEach(function(plataforma) { %>
+                    <option value="<%= plataforma.id %>">
+                        <%= plataforma.nome %>
+                    </option>
+                    <% }) %>
+            </select><br>
 
-        <button type="submit">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
 
-    </form>
-</div>
+        </form>
+    </div>
 
-<%-include('../rodape.ejs')%>
+    <%-include('../rodape.ejs')%>

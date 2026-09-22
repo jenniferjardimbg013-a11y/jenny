@@ -12,11 +12,23 @@ const Jogo = conexao.Schema({
 
     dificuldade: {type:String, required:true},
 
-    desenvolvedora: {type:String, required:true},
+    desenvolvedora: {
+        type: conexao.Types.ObjectId,
+        ref: 'Desenvolvedora',
+        required: false
+    },
 
-    genero: {type:String, required:true},
+    genero: {
+        type: conexao.Types.ObjectId,
+        ref: 'Genero',
+        required: false
+    },
 
-    plataforma: {type:String, required:true},
+    plataforma: {
+        type: conexao.Types.ObjectId,
+        ref: 'Plataforma',
+        required: false
+    },
 
     capa: {type:Buffer},
 

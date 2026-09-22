@@ -11,6 +11,8 @@ router.post('/plataforma/add', controller.add)
 
 router.get('/plataforma/lst', controller.list)
 
+router.post('/plataforma/lst', controller.find)
+
 router.get('/plataforma/edt/:id', controller.openEdt)
 
 router.post('/plataforma/edt/:id', controller.edt)

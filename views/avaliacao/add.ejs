@@ -1,36 +1,48 @@
 <%-include('../cabecalho.ejs')%>
 
-<h1>Adicionar Avaliação</h1>
+    <h1>Adicionar Avaliação</h1>
 
-<div>
+    <div>
 
-    <a href="/avaliacao/lst">Listar</a>
+        <a href="/avaliacao/lst">Listar</a>
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-    <form method="post">
+        <form method="post">
 
-        <label>Usuário:</label>
-        <input type="text" name="usuario"><br>
+            <label>Usuário:</label>
+            <select name="usuario" required>
+                <option value="">Selecione</option>
+                <% Usuarios.forEach(function(usuario) { %>
+                    <option value="<%=usuario.id%>"><%=usuario.nome%></option>
+                <% }) %>
+            </select><br>
 
-        <label>Jogo:</label>
-        <input type="text" name="jogo"><br>
+            <label>Jogo:</label>
+            <select name="jogo" required>
+                <option value="">Selecione</option>
+                <% Jogos.forEach(function(jogo) { %>
+                    <option value="<%=jogo.id%>">
+                        <%=jogo.titulo%>
+                    </option>
+                    <% }) %>
+            </select><br>
 
-        <label>Nota:</label>
-        <input type="number" name="nota"><br>
+            <label>Nota:</label>
+            <input type="number" name="nota" min="0" max="10" required><br>
 
-        <label>Comentário:</label>
-        <input type="text" name="comentario"><br>
+            <label>Comentário:</label>
+            <input type="text" name="comentario" required><br>
 
-        <label>Data:</label>
-        <input type="date" name="data"><br>
+            <label>Data:</label>
+            <input type="date" name="data" required><br>
 
-        <button type="submit">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
-<%-include('../rodape.ejs')%>
+    <%-include('../rodape.ejs')%>

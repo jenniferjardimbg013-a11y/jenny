@@ -19,21 +19,27 @@
         <td>Ano de Lançamento</td>
         <td>Dificuldade</td>
         <td>Classificação Etária</td>
+        <td>Desenvolvedora</td>
+        <td>Gênero</td>
+        <td>Plataforma</td>
         <td>Ações</td>
     </tr>
 
-    <%for (const {id, titulo, anoLancamento, dificuldade, classificacaoEtaria, capa} of Jogos) {%>
+    <%for (const jogo of Jogos) {%>
 
     <tr>
-        <td><% if (capa) { %><img src="/jogo/capa/<%=id%>" alt="Capa de <%=titulo%>" width="60"><% } %></td>
-        <td><%=titulo%></td>
-        <td><%=anoLancamento%></td>
-        <td><%=dificuldade%></td>
-        <td><%=classificacaoEtaria%></td>
+        <td><% if (jogo.capa) { %><img src="/jogo/capa/<%=jogo.id%>" alt="Capa de <%=jogo.titulo%>" width="60"><% } %></td>
+        <td><%=jogo.titulo%></td>
+        <td><%=jogo.anoLancamento%></td>
+        <td><%=jogo.dificuldade%></td>
+        <td><%=jogo.classificacaoEtaria%></td>
+        <td><%=jogo.desenvolvedora ? jogo.desenvolvedora.nome : ''%></td>
+        <td><%=jogo.genero ? jogo.genero.nome : ''%></td>
+        <td><%=jogo.plataforma ? jogo.plataforma.nome : ''%></td>
 
         <td>
-            <a href="/jogo/edt/<%=id%>">Editar</a>
-            <a href="/jogo/del/<%=id%>">Excluir</a>
+            <a href="/jogo/edt/<%=jogo.id%>">Editar</a>
+            <a href="/jogo/del/<%=jogo.id%>">Excluir</a>
         </td>
     </tr>
 
