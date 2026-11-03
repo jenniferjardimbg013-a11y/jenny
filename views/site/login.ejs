@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login | Portal da Jenny</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap top">
+            <a class="brand" href="/site/">🎮 Portal da Jenny</a>
+            <nav aria-label="Navegação principal">
+                <a href="/site/">Início</a>
+                <a href="/jogo/lst">Jogos</a>
+                <a href="/desenvolvedora/lst">Desenvolvedoras</a>
+                <a class="active" href="/site/login">Login</a>
+            </nav>
+        </div>
+    </header>
+    <main class="wrap">
+        <div class="card login">
+            <h1>Entrar no sistema</h1>
+            <p class="muted">Interface ilustrativa. A autenticação será implementada no back-end.</p>
+            <form action="/login" method="post">
+                <label class="field"><span>Usuário</span><input name="usuario" type="text" autocomplete="username"
+                        required></label>
+                <label class="field"><span>Senha</span><input name="senha" type="password"
+                        autocomplete="current-password" required></label>
+                <button class="button" type="submit">Entrar</button>
+            </form>
+            <p class="muted">Não há cadastro de usuários nesta versão.</p>
+        </div>
+    </main>
+    <footer>Portal da Jenny</footer>
+</body>
+
+</html>

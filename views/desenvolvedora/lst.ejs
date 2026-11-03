@@ -1,40 +1,48 @@
 <%-include('../cabecalho.ejs')%>
 
-<h1>Desenvolvedoras</h1>
+    <main class="list-page">
+        <h1>Desenvolvedoras</h1>
 
-<div>
-    <form action="" method="post">
-        <input type="text" name="filtro" placeholder="digite o nome da desenvolvedora">
-        <button type="submit">Pesquisar</button>
-    </form>
-</div>
+        <div class="list-toolbar">
+            <form class="list-search" action="" method="post">
+                <input type="text" name="filtro" placeholder="Digite o nome da desenvolvedora">
+                <button class="button" type="submit">Pesquisar</button>
+            </form>
+            <a class="button" href="/desenvolvedora/add">+ Nova desenvolvedora</a>
+        </div>
 
-<a href="/desenvolvedora/add">+ Desenvolvedora</a>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">País</th>
+                        <th scope="col">Ano de fundação</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for (const {id, nome, pais, anoFundacao} of Desenvolvedoras) {%>
+                        <tr>
+                            <td>
+                                <%=nome%>
+                            </td>
+                            <td>
+                                <%=pais%>
+                            </td>
+                            <td>
+                                <%=anoFundacao%>
+                            </td>
+                            <td class="table-actions">
+                                <a class="button button-small secondary" href="/desenvolvedora/edt/<%=id%>">Editar</a>
+                                <a class="button button-small button-danger"
+                                    href="/desenvolvedora/del/<%=id%>">Excluir</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-<table>
-
-    <tr>
-        <td>Nome</td>
-        <td>País</td>
-        <td>Ano Fundação</td>
-        <td>Ações</td>
-    </tr>
-
-    <%for (const {id, nome, pais, anoFundacao} of Desenvolvedoras) {%>
-
-    <tr>
-        <td><%=nome%></td>
-        <td><%=pais%></td>
-        <td><%=anoFundacao%></td>
-
-        <td>
-            <a href="/desenvolvedora/edt/<%=id%>">Editar</a>
-            <a href="/desenvolvedora/del/<%=id%>">Excluir</a>
-        </td>
-    </tr>
-
-    <%}%>
-
-</table>
-
-<%-include('../rodape.ejs')%>
+    <%-include('../rodape.ejs')%>

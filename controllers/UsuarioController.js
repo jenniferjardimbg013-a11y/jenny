@@ -11,16 +11,8 @@ export default class UsuarioController{
         }
 
         this.add = async(req, res)=>{
-            // cria o Usuário
-            let fotoEnviada
-           if(req.file!=null){
-            console.log(" foi")
-            fotoEnviada = req.file.buffer
-           }
-           else{
-            console.log("nao foi")
-            fotoEnviada = null
-           }
+            const fotoEnviada = req.file ? req.file.buffer : null
+
             await Usuario.create({
                 nome: req.body.nome,
                 email: req.body.email,
