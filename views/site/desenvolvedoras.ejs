@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePortal - Gestão e Consulta de Jogos</title>
+    <link rel="stylesheet" href="/css/site/style.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="region" aria-label="Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
+        <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+        <button id="btn-reset-font" aria-label="Tamanho normal">A</button>
+    </div>
+
+    <%- include('cabecalho.ejs') %>
+
+    <main>
+        <h2 class="section-title">Desenvolvedoras de Jogos</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">CD Projekt Red</h3>
+                    <p class="card-meta">País: Polônia<br>Fundação: 1994</p>
+                    <p>Famosa pela franquia The Witcher e Cyberpunk 2077.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">FromSoftware</h3>
+                    <p class="card-meta">País: Japão<br>Fundação: 1986</p>
+                    <p>Criadora de Elden Ring, Dark Souls e Bloodborne.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Nintendo EPD</h3>
+                    <p class="card-meta">País: Japão<br>Fundação: 1983</p>
+                    <p>Desenvolvedora responsável pelas franquias Zelda e Mario.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GamePortal - Sistema de Gestão de Jogos. Todos os direitos reservados.</p>
+        <p><small>Desenvolvido para acessibilidade e navegação responsiva.</small></p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

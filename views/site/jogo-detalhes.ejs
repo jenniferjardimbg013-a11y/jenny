@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePortal - Gestão e Consulta de Jogos</title>
+    <link rel="stylesheet" href="/css/site/style.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="region" aria-label="Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
+        <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+        <button id="btn-reset-font" aria-label="Tamanho normal">A</button>
+    </div>
+
+    <%- include('cabecalho.ejs') %>
+
+    <main>
+        <section class="details-header">
+            <img src="https://via.placeholder.com/300x400/1e293b/06b6d4?text=The+Witcher+3" alt="Capa oficial de The Witcher 3: Wild Hunt" class="details-cover">
+            <div class="details-info">
+                <h1>The Witcher 3: Wild Hunt</h1>
+                <div class="details-tags">
+                    <span class="tag">Gênero: RPG</span>
+                    <span class="tag">Plataforma: PC / PS4 / Xbox One</span>
+                    <span class="tag">Classificação: 18+</span>
+                    <span class="tag">Dificuldade: Média</span>
+                </div>
+                <p><strong>Desenvolvedora:</strong> <a href="/site/desenvolvedoras">CD Projekt Red</a></p>
+                <p><strong>Ano de Lançamento:</strong> 2015</p>
+                <br>
+                <p>O jogador controla Geralt de Rívia, um caçador de monstros em busca de sua filha adotiva em um vasto mundo aberto repleto de perigos e decisões morais complexas.</p>
+                <br>
+                <button class="btn btn-primary">❤️ Adicionar aos Favoritos</button>
+            </div>
+        </section>
+
+        <section class="details-section">
+            <h2 class="section-title">Avaliações dos Usuários</h2>
+
+            <div style="margin-bottom: 2rem;">
+                <h3>Deixar uma Avaliação</h3>
+                <form class="form-group" style="margin-top: 1rem;">
+                    <label for="nota">Nota (1 a 5):</label>
+                    <select id="nota">
+                        <option value="5">5 ★★★★★</option>
+                        <option value="4">4 ★★★★☆</option>
+                        <option value="3">3 ★★★☆☆</option>
+                        <option value="2">2 ★★☆☆☆</option>
+                        <option value="1">1 ★☆☆☆☆</option>
+                    </select>
+                    <br><br>
+                    <label for="comentario">Comentário:</label>
+                    <textarea id="comentario" rows="3" placeholder="Escreva o que achou do jogo..."></textarea>
+                    <br><br>
+                    <button type="button" class="btn btn-primary">Enviar Avaliação</button>
+                </form>
+            </div>
+
+            <hr style="border-color: var(--border); margin-bottom: 1.5rem;">
+
+            <div class="review-item" style="margin-bottom: 1rem;">
+                <p><strong>João Silva</strong> <span class="rating">★★★★★ (5/5)</span> - <small>10/02/2026</small></p>
+                <p>Um dos melhores RPGs de todos os tempos. História impecável!</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Maria Souza</strong> <span class="rating">★★★★☆ (4/5)</span> - <small>01/01/2026</small></p>
+                <p>Excelente jogo, gráfico maravilhoso e excelente jogabilidade.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GamePortal - Sistema de Gestão de Jogos. Todos os direitos reservados.</p>
+        <p><small>Desenvolvido para acessibilidade e navegação responsiva.</small></p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

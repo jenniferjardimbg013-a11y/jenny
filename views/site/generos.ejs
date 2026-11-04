@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePortal - Gestão e Consulta de Jogos</title>
+    <link rel="stylesheet" href="/css/site/style.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="region" aria-label="Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
+        <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+        <button id="btn-reset-font" aria-label="Tamanho normal">A</button>
+    </div>
+
+    <%- include('cabecalho.ejs') %>
+
+    <main>
+        <h2 class="section-title">Gêneros de Jogos</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">RPG (Role-Playing Game)</h3>
+                    <p class="card-meta">Jogos focado na evolução de personagens, narrativa rica e tomada de decisões.</p>
+                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de RPG</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Ação / Aventura</h3>
+                    <p class="card-meta">Mistura elementos de combate dinâmico, exploração de ambientes e resolução de enigmas.</p>
+                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de Ação</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Estratégia</h3>
+                    <p class="card-meta">Jogos que exigem planejamento tático e gerenciamento de recursos para vencer desafios.</p>
+                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de Estratégia</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GamePortal - Sistema de Gestão de Jogos. Todos os direitos reservados.</p>
+        <p><small>Desenvolvido para acessibilidade e navegação responsiva.</small></p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

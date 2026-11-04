@@ -1,28 +1,68 @@
-<%-include('cabecalho.ejs')%>
-    <main class="wrap">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePortal - Gestão e Consulta de Jogos</title>
+    <link rel="stylesheet" href="/css/site/style.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="region" aria-label="Acessibilidade">
+        <span>Acessibilidade:</span>
+        <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
+        <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+        <button id="btn-reset-font" aria-label="Tamanho normal">A</button>
+    </div>
+
+    <%- include('cabecalho.ejs') %>
+
+    <main>
         <section class="hero">
-            <h1>Bem-vindo ao Portal da Jenny</h1>
-            <p>Explore nossa coleção de jogos, descubra desenvolvedoras, gêneros e acesse rapidamente o sistema.</p>
+            <h1>Descubra e Avalie seus Jogos Favoritos</h1>
+            <p>Explore um vasto catálogo de jogos, desenvolvedoras, gêneros e plataformas. Faça parte da nossa comunidade gamer!</p>
+            <a href="/site/jogos" class="btn btn-primary">Explorar Jogos</a>
         </section>
 
-        <div class="grid">
-            <section class="card">
-                <h2>Jogos</h2>
-                <p>Veja os títulos disponíveis, suas capas e detalhes para descobrir novas experiências.</p>
-                <a class="button" href="/jogo/lst">Ver jogos</a>
-            </section>
-            <section class="card">
-                <h2>Desenvolvedoras</h2>
-                <p>Conheça as empresas por trás dos jogos mais amados da plataforma.</p>
-                <a class="button" href="/desenvolvedora/lst">Ver desenvolvedoras</a>
-            </section>
-            <section class="card">
-                <h2>Acesso ao sistema</h2>
-                <p>Área administrativa para gerir o conteúdo e manter o portal em dia.</p>
-                <a class="button" href="/site/login">Entrar</a>
-            </section>
-        </div>
-    </main>
-    <footer>Portal da Jenny</footer>
+        <section>
+            <h2 class="section-title">Destaques e Mais Populares</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x180/1e293b/06b6d4?text=The+Witcher+3" alt="Capa do Jogo The Witcher 3" class="card-img">
+                    <div class="card-body">
+                        <span class="card-badge">RPG</span>
+                        <h3 class="card-title"><a href="/site/jogo-detalhes">The Witcher 3: Wild Hunt</a></h3>
+                        <p class="card-meta">Desenvolvedora: CD Projekt Red<br>Plataforma: PC, PS4, Xbox One</p>
+                        <p class="rating">★ 4.9 / 5.0 (1.250 avaliações)</p>
+                    </div>
+                </div>
 
-    </html>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x180/1e293b/8b5cf6?text=Elden+Ring" alt="Capa do Jogo Elden Ring" class="card-img">
+                    <div class="card-body">
+                        <span class="card-badge">Ação / RPG</span>
+                        <h3 class="card-title"><a href="/site/jogo-detalhes">Elden Ring</a></h3>
+                        <p class="card-meta">Desenvolvedora: FromSoftware<br>Plataforma: PC, PS5, Xbox Series X</p>
+                        <p class="rating">★ 4.8 / 5.0 (980 avaliações)</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x180/1e293b/06b6d4?text=Zelda+TOTK" alt="Capa do Jogo Zelda TOTK" class="card-img">
+                    <div class="card-body">
+                        <span class="card-badge">Aventura</span>
+                        <h3 class="card-title"><a href="/site/jogo-detalhes">Tears of the Kingdom</a></h3>
+                        <p class="card-meta">Desenvolvedora: Nintendo<br>Plataforma: Nintendo Switch</p>
+                        <p class="rating">★ 4.9 / 5.0 (2.100 avaliações)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GamePortal - Sistema de Gestão de Jogos. Todos os direitos reservados.</p>
+        <p><small>Desenvolvido para acessibilidade e navegação responsiva.</small></p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
