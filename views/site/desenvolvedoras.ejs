@@ -19,27 +19,18 @@
     <main>
         <h2 class="section-title">Desenvolvedoras de Jogos</h2>
         <div class="grid">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">CD Projekt Red</h3>
-                    <p class="card-meta">País: Polônia<br>Fundação: 1994</p>
-                    <p>Famosa pela franquia The Witcher e Cyberpunk 2077.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">FromSoftware</h3>
-                    <p class="card-meta">País: Japão<br>Fundação: 1986</p>
-                    <p>Criadora de Elden Ring, Dark Souls e Bloodborne.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Nintendo EPD</h3>
-                    <p class="card-meta">País: Japão<br>Fundação: 1983</p>
-                    <p>Desenvolvedora responsável pelas franquias Zelda e Mario.</p>
-                </div>
-            </div>
+            <% if (desenvolvedoras.length) { %>
+                <% desenvolvedoras.forEach((desenvolvedora) => { %>
+                    <article class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><%= desenvolvedora.nome %></h3>
+                            <p class="card-meta">País: <%= desenvolvedora.pais %><br>Fundação: <%= desenvolvedora.anoFundacao %></p>
+                        </div>
+                    </article>
+                <% }) %>
+            <% } else { %>
+                <p class="card-meta">Nenhuma desenvolvedora cadastrada.</p>
+            <% } %>
         </div>
     </main>
 

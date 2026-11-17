@@ -19,27 +19,18 @@
     <main>
         <h2 class="section-title">Plataformas de Jogos</h2>
         <div class="grid">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">PC (Computador Pessoal)</h3>
-                    <p class="card-meta">Fabricante: Diversos<br>Lançamento: Vários</p>
-                    <p>Plataforma aberta com alta personalização e variedade de títulos.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">PlayStation 5</h3>
-                    <p class="card-meta">Fabricante: Sony<br>Lançamento: 2020</p>
-                    <p>Console de última geração focado em gráficos avançados e SSD ultrarrápido.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Nintendo Switch</h3>
-                    <p class="card-meta">Fabricante: Nintendo<br>Lançamento: 2017</p>
-                    <p>Console híbrido que permite jogar tanto na TV quanto em modo portátil.</p>
-                </div>
-            </div>
+            <% if (plataformas.length) { %>
+                <% plataformas.forEach((plataforma) => { %>
+                    <article class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><%= plataforma.nome %></h3>
+                            <p class="card-meta">Fabricante: <%= plataforma.fabricante %><br>Lançamento: <%= plataforma.anoLancamento %></p>
+                        </div>
+                    </article>
+                <% }) %>
+            <% } else { %>
+                <p class="card-meta">Nenhuma plataforma cadastrada.</p>
+            <% } %>
         </div>
     </main>
 

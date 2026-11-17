@@ -17,53 +17,31 @@
     <%- include('cabecalho.ejs') %>
 
     <main>
-        <h2 class="section-title">Catálogo Completo de Jogos</h2>
-
-        <div class="search-filter-bar">
-            <input type="text" placeholder="Pesquisar por título..." aria-label="Pesquisar por título">
-            <select aria-label="Filtrar por Gênero">
-                <option value="">Todos os Gêneros</option>
-                <option value="rpg">RPG</option>
-                <option value="acao">Ação</option>
-                <option value="aventura">Aventura</option>
-            </select>
-            <select aria-label="Filtrar por Plataforma">
-                <option value="">Todas as Plataformas</option>
-                <option value="pc">PC</option>
-                <option value="ps5">PlayStation 5</option>
-                <option value="switch">Nintendo Switch</option>
-            </select>
-            <button class="btn btn-primary">Buscar</button>
-        </div>
+        <h2 class="section-title">Catálogo de Jogos</h2>
 
         <div class="grid">
-            <div class="card">
-                <img src="https://via.placeholder.com/300x180/1e293b/06b6d4?text=The+Witcher+3" alt="Capa The Witcher 3" class="card-img">
-                <div class="card-body">
-                    <span class="card-badge">RPG</span>
-                    <h3 class="card-title"><a href="/site/jogo-detalhes">The Witcher 3</a></h3>
-                    <p class="card-meta">Ano: 2015 | Dificuldade: Média</p>
-                    <a href="/site/jogo-detalhes" class="btn btn-outline" style="text-align:center;">Ver Detalhes</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x180/1e293b/8b5cf6?text=Elden+Ring" alt="Capa Elden Ring" class="card-img">
-                <div class="card-body">
-                    <span class="card-badge">Ação / RPG</span>
-                    <h3 class="card-title"><a href="/site/jogo-detalhes">Elden Ring</a></h3>
-                    <p class="card-meta">Ano: 2022 | Dificuldade: Difícil</p>
-                    <a href="/site/jogo-detalhes" class="btn btn-outline" style="text-align:center;">Ver Detalhes</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x180/1e293b/06b6d4?text=Zelda+TOTK" alt="Capa Zelda TOTK" class="card-img">
-                <div class="card-body">
-                    <span class="card-badge">Aventura</span>
-                    <h3 class="card-title"><a href="/site/jogo-detalhes">Tears of the Kingdom</a></h3>
-                    <p class="card-meta">Ano: 2023 | Dificuldade: Média</p>
-                    <a href="/site/jogo-detalhes" class="btn btn-outline" style="text-align:center;">Ver Detalhes</a>
-                </div>
-            </div>
+            <% if (jogos.length) { %>
+                <% jogos.forEach((jogo) => { %>
+                    <article class="card">
+                        <a href="/site/jogo-detalhes/<%= jogo.id %>" aria-label="Ver detalhes de <%= jogo.titulo %>">
+                            <% if (jogo.capa && jogo.capa.length > 0) { %>
+                                <img src="/jogo/capa/<%= jogo.id %>" alt="Capa de <%= jogo.titulo %>" class="card-img">
+                            <% } else { %>
+                                <div class="card-img card-img-placeholder" role="img" aria-label="Capa não cadastrada">Capa não cadastrada</div>
+                            <% } %>
+                        </a>
+                        <div class="card-body">
+                            <% if (jogo.genero) { %><span class="card-badge"><%= jogo.genero.nome %></span><% } %>
+                            <h3 class="card-title"><a href="/site/jogo-detalhes/<%= jogo.id %>"><%= jogo.titulo %></a></h3>
+                            <p class="card-meta"><%= jogo.descricao %></p>
+                            <p class="card-meta">Ano: <%= jogo.anoLancamento %> | Dificuldade: <%= jogo.dificuldade %></p>
+                            <a href="/site/jogo-detalhes/<%= jogo.id %>" class="btn btn-outline">Ver detalhes</a>
+                        </div>
+                    </article>
+                <% }) %>
+            <% } else { %>
+                <p class="card-meta">Nenhum jogo cadastrado.</p>
+            <% } %>
         </div>
     </main>
 

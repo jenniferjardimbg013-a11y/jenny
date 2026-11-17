@@ -19,27 +19,18 @@
     <main>
         <h2 class="section-title">Gêneros de Jogos</h2>
         <div class="grid">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">RPG (Role-Playing Game)</h3>
-                    <p class="card-meta">Jogos focado na evolução de personagens, narrativa rica e tomada de decisões.</p>
-                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de RPG</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Ação / Aventura</h3>
-                    <p class="card-meta">Mistura elementos de combate dinâmico, exploração de ambientes e resolução de enigmas.</p>
-                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de Ação</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Estratégia</h3>
-                    <p class="card-meta">Jogos que exigem planejamento tático e gerenciamento de recursos para vencer desafios.</p>
-                    <a href="/site/jogos" class="btn btn-outline">Ver Jogos de Estratégia</a>
-                </div>
-            </div>
+            <% if (generos.length) { %>
+                <% generos.forEach((genero) => { %>
+                    <article class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><%= genero.nome %></h3>
+                            <% if (genero.descricao) { %><p class="card-meta"><%= genero.descricao %></p><% } %>
+                        </div>
+                    </article>
+                <% }) %>
+            <% } else { %>
+                <p class="card-meta">Nenhum gênero cadastrado.</p>
+            <% } %>
         </div>
     </main>
 
